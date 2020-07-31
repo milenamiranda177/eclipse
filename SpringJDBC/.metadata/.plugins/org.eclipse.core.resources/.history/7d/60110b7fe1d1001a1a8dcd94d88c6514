@@ -1,0 +1,11 @@
+package com.springjdbc.entitys;
+
+public class PlacaDelete implements EntityDelete{
+
+	@Override
+	public String deleteEntity() {
+		System.out.println("Se va a borrar una placa");
+		return null;
+	}
+
+}

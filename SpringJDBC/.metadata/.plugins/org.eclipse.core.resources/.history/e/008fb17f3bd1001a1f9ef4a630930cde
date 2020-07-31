@@ -1,0 +1,21 @@
+package com.springjdbc.main;
+
+import com.springjdbc.entitys.Factura;
+import com.springjdbc.repository.FacturaRepository;
+
+public class PrincipalJDBC {
+
+	public static void main(String[] args) throws Exception {
+		
+		try {
+			FacturaRepository fr = new FacturaRepository();
+			Factura factura = new Factura(1, "Mouse", 200);
+			fr.insertar(factura);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

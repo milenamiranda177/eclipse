@@ -1,0 +1,18 @@
+package com.springjdbc.entitys;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class FactoryEntity {
+	
+	public EntityDelete getInstance(Boolean porUsuario, Boolean porPlaca) {
+		if (porUsuario) {
+			return new UsuarioDelete();
+		} else if(porPlaca) {
+			return new PlacaDelete();
+		}else {
+			throw new IllegalArgumentException("Invalid type " + type);
+		}
+		
+	}
+}

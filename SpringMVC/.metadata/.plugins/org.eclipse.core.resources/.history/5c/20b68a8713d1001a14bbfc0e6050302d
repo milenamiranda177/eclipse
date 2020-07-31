@@ -1,0 +1,5 @@
+package com.springjdbc.config;
+
+public class ConfiguradorSpring {
+
+}

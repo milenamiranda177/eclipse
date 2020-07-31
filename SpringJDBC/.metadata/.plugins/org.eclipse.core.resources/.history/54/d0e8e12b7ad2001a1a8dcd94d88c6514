@@ -1,0 +1,12 @@
+package com.springjdbc.util.sql;
+
+public enum QueryEborasUser {
+
+	DELETECONFIG("update co.tb_ebrs_cp_mounted set cpmo_date_desmount = now() where fk_number_plate "
+			+ "in (select vhcl_number_plate from co.tb_ebrs_vehicle where pk_vhcl_id in "
+			+ "(select fk_vhcl_id from co.tb_ebrs_vehicle_master where fk_mast_id in "
+			+ "(select pk_mast_id from co.tb_ebrs_master where mast_login='MARIO')));");
+	EMPTYCP("update gt.tb_ebrs_vehicle set fk_cps_id = null where vhcl_number_plate = ?;");
+	DELETEMASTER("delete from gt.tb_ebrs_vehicle_master where fk_vhcl_id IN (select pk_vhcl_id from gt.tb_ebrs_vehicle where vhcl_number_plate = ?)");
+	
+}

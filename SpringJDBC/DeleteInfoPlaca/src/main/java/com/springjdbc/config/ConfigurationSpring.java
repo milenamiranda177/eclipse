@@ -1,0 +1,48 @@
+package com.springjdbc.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Configuration
+@ComponentScan("com.springjdbc")
+@PropertySource("classpath:database.properties")
+@EnableTransactionManagement
+public class ConfigurationSpring {
+	
+	@Value("${url}")
+	String url;
+	@Value("${password}")
+	String password;
+	@Value("${usuario}")
+	String usuario;
+	
+	
+	@Bean
+	public DataSource dataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setUrl(url);
+		dataSource.setUsername(usuario);
+		dataSource.setPassword(password);
+		return dataSource;
+	}
+	@Bean
+	public JdbcTemplate plantillaUp() {
+		return new JdbcTemplate(dataSource());
+	}
+	@Bean
+	public PlatformTransactionManager txCrud() {
+		return new DataSourceTransactionManager(dataSource());
+	}
+	
+	
+}

@@ -1,0 +1,17 @@
+package com.springjdbc.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+@Configuration
+public class ConfigurationSpring {
+	
+	@Bean
+	public DataSource dataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		dataSource.setUrl("jdbc:postgresql://localhost/spring");
+		dataSource.setUsername("root");
+		dataSource.setPassword("mmiranda");
+	}
+}

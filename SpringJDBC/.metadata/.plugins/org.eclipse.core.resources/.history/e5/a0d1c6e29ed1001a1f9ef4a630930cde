@@ -1,0 +1,12 @@
+package com.jdbc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.springjdbc.repository.FacturaRepository;
+
+public class ServiceFactura {
+	
+	@Autowired
+	private FacturaRepository fr;
+
+}

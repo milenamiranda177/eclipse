@@ -1,0 +1,14 @@
+package com.factory;
+
+public class FactoryFacturas {
+
+	
+	public static Factura getInstance(String tipo) {
+		if (tipo.equals("IVA")) {
+			//Usamos patrón proxy para adicionar comportamiento adicional antes de crear la clase real
+			return new FacturaProxy(new FacturaConIva());
+		} else {
+			return new FacturaProxy(new FacturaSinIva());
+		}
+	}
+}

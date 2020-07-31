@@ -1,0 +1,12 @@
+package com.springjdbc.entitys;
+
+public class UsuarioDelete extends EntityDelete {
+
+	@Override
+	public String deleteEntity() {
+		System.out.println("Borra los usuarios");
+		System.out.println(rs);
+		return null;
+	}
+
+}

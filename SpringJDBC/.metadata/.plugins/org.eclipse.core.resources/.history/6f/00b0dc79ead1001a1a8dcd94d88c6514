@@ -1,0 +1,18 @@
+package com.springjdbc.entitys;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class FactoryEntity {
+	
+	public EntityDelete getInstance(Boolean porUsuario, Boolean porPlaca, String path) {
+		if (porUsuario) {
+			return new UsuarioDelete(path);
+		} else if(porPlaca) {
+			return new PlacaDelete(path);
+		}else {
+			throw new IllegalArgumentException("No se detectó tipo de borrado" );
+		}
+		
+	}
+}

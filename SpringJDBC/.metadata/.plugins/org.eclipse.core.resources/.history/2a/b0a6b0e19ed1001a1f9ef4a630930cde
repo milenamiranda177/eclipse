@@ -1,0 +1,36 @@
+package com.springjdbc.repository;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+import com.springjdbc.entitys.Factura;
+
+@Repository
+public class FacturaRepository {
+	
+	@Autowired
+	JdbcTemplate plantillaFactura;
+	
+	public void insertar(Factura factura) throws Exception {
+
+		String sql = "insert into factura (numero, concepto, importe) values (?,?,?)";
+		plantillaFactura.update(sql, factura.getNumero(), factura.getConcepto(), factura.getImporte());
+	}
+
+	public List<Factura> buscarTodas() {
+		String sql = "select * from factura";
+		return plantillaFactura.query(sql, new BeanPropertyRowMapper<Factura>(Factura.class));
+	}
+	
+	public void borrar(Factura factura) throws Exception {
+
+		String sql = "delete from factura where numero =?";
+		
+		plantillaFactura.update(sql, factura.getNumero());
+	}
+}

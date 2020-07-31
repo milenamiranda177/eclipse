@@ -1,0 +1,48 @@
+package com.factory;
+
+public class FacturaProxy extends Factura{
+	
+	private Factura factura;
+	
+	public String getNumber() {
+		return factura.getNumber();
+	}
+
+	public void setNumber(String number) {
+		factura.setNumber(number);
+	}
+
+	public String getConcepto() {
+		return factura.getConcepto();
+	}
+
+	public void setConcepto(String concepto) {
+		factura.setConcepto(concepto);
+	}
+
+	public double getImporte() {
+		return factura.getImporte();
+	}
+
+	public void setImporte(double importe) {
+		factura.setImporte(importe);
+	}
+
+	public FacturaProxy (FacturaConIva factura) {
+		this.factura = factura;	
+	}
+	
+	public FacturaProxy (FacturaSinIva factura) {
+		this.factura = factura;	
+	}
+
+	@Override
+	public double importeTotal() {
+		//El proxy debe añadir comportamiento adicional y además debe delegar todas las propiedades
+		System.out.println("Ojo, se creó una factura con iva");
+		return this.factura.importeTotal();
+	}
+	
+	
+
+}

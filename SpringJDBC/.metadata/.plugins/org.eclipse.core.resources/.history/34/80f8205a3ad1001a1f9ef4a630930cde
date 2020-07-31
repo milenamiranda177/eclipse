@@ -1,0 +1,33 @@
+package com.springjdbc.repository;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.springjdbc.entitys.Factura;
+
+public class FacturaRepository {
+
+	public Factura insertar (Factura factura) {
+		
+		String sql = "insert into facturas (numero, concepto, importe) values (?,?,?)";
+		
+		List<Factura> facturas = new ArrayList<Factura>();
+		
+		try(Connection connection = getConnection();
+				PreparedStatement sentencia = connection.prepareStatement(sql)){
+			sentencia.setInt(1, factura.getNumero());
+			sentencia.setString(2, factura.getConcepto());
+			sentencia.setDouble(3, factura.getImporte());
+			sentencia.execute();
+		}catch(Exception ex) {
+			throw ex;
+		}
+	}
+	
+	private void getConnection() {
+		Connection driver = DriverManager.getConnection("jdbc:postgresql://localhost/spring")
+	}
+}

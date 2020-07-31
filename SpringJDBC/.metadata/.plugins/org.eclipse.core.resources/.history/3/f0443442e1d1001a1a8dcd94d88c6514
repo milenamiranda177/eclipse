@@ -1,0 +1,6 @@
+package com.springjdbc.entitys;
+
+public interface EntityDelete {
+
+	public String deleteEntity();
+}

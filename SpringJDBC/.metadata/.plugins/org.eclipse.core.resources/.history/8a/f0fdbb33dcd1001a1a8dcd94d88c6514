@@ -1,0 +1,42 @@
+package com.springjdbc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.springjdbc.entitys.EntityDelete;
+import com.springjdbc.entitys.FactoryEntity;
+import com.springjdbc.entitys.Factura;
+import com.springjdbc.repository.FacturaRepository;
+
+@ServiceMain
+public class ServiceMain {
+	
+	//Repositorio para CRUD
+	@Autowired
+	private FacturaRepository fr;
+	
+	//Fábrica de tipos de borrado
+	@Autowired
+	private FactoryEntity fe;
+	
+	//Ambiente de configuración
+	@Autowired
+	private Environment env;
+	
+	private EntityDelete ed;
+	
+	@Transactional
+	public void insertarVarios(Factura f1, Factura f2) {
+		fr.insertar(f1);
+		fr.insertar(f2);
+	}
+	
+	public void getDeleteEntity() {
+		ed = fe.getInstance(Boolean.parseBoolean(env.getProperty("porUsuario")), Boolean.parseBoolean(env.getProperty("porPlaca")));
+		ed.deleteEntity();
+	}
+	
+	
+
+}

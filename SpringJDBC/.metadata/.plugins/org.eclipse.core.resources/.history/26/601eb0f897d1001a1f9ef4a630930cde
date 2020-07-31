@@ -1,0 +1,8 @@
+package com.springjdbc.rowMapper;
+
+public class RowMapperFactura implements RowMapper<Factura>{
+
+	public Factura rowMap() {
+		
+	}
+}

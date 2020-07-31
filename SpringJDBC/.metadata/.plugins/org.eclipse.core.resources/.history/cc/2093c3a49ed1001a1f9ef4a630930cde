@@ -1,0 +1,10 @@
+package com.jdbc.service;
+
+import com.springjdbc.repository.FacturaRepository;
+
+public class ServiceFactura {
+	
+	@Autowired
+	private FacturaRepository fr;
+
+}

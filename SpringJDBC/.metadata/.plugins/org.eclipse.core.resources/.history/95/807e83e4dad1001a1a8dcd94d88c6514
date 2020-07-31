@@ -1,0 +1,22 @@
+package com.springjdbc.main;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.springjdbc.config.ConfigurationSpring;
+import com.springjdbc.entitys.Factura;
+import com.springjdbc.service.ServiceFactura;
+
+public class Main {
+public static void main(String[] args) throws Exception {
+		
+		try {
+			AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfigurationSpring.class);
+			ServiceFactura sf = context.getBean(ServiceFactura.class);
+			sf.getDeleteEntity("usuario");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+}

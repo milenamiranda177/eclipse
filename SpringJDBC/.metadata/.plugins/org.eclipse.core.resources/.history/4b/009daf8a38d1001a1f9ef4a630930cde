@@ -1,0 +1,16 @@
+package com.springjdbc.config;
+
+import org.springframework.context.annotation.Bean;
+
+import com.spring1.Persona;
+
+public class ConfigurationSpring {
+
+	
+	@Bean
+	public Persona getPersona() {
+		Persona persona = new Persona();
+		persona.setNombre("Milena");
+		return persona;
+	}
+}

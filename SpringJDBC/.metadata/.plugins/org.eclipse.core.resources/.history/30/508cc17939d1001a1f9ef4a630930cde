@@ -1,0 +1,25 @@
+package com.springjdbc.repository;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.springjdbc.entitys.Factura;
+
+public class FacturaRepository {
+
+	public Factura insertar (Factura factura) {
+		
+		String sql = "insert into facturas (numero, concepto, importe) values (?,?,?)";
+		
+		List<Factura> facturas = new ArrayList<Factura>();
+		
+		try(Connection connection = getConnection();
+				PreparedStatement sentencia = connection.prepareStatement(sql)){
+			sentencia.setInt(1, factura.getNumero());
+			sentencia.setString(2, factura.getConcepto());
+			sentencia.setDouble(3, factura.getImporte());
+		}catch(Exception ex) {
+			throw ex;
+		}
+	}
+}

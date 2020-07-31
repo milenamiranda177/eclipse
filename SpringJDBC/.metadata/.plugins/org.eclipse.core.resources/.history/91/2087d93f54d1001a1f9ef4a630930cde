@@ -1,0 +1,30 @@
+package com.springjdbc.repository;
+
+import javax.sql.ConnectionPoolDataSource;
+
+import org.postgresql.ds.PGConnectionPoolDataSource;
+import org.postgresql.ds.PGPoolingDataSource;
+import org.postgresql.jdbc.PgConnection;
+
+public class MiDataSource {
+
+	//Esta clase va a ser un singleton
+	private static MiDataSource miDataSource = new MiDataSource();
+	private PGConnectionPoolDataSource source;
+	
+	private MiDataSource() {
+		PGConnectionPoolDataSource source = new PGConnectionPoolDataSource();
+		source.setDatabaseName("spring");
+		source.setUser("root");
+		source.setPassword("mmiranda");
+		source.setLoginTimeout(20);
+		source.setSocketTimeout(20);
+	}
+	
+	public MiDataSource getInstance() {
+		if (miDataSource == null) {
+			miDataSource = new MiDataSource();
+		}
+		return miDataSource;
+	}
+}

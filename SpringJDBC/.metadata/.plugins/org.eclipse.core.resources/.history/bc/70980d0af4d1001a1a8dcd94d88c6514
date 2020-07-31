@@ -1,0 +1,26 @@
+package com.springjdbc.entitys;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.springjdbc.util.ReadCsv;
+
+public abstract class EntityDelete {
+
+	@Autowired
+	public ReadCsv rc;
+	@Autowired
+	StringBuilder stringData;
+
+	public String getRows() throws Exception {
+		
+		for(String[] row : rc.readCsv()){
+			stringData.append(Arrays.toString(row)).append(",");
+	     }
+		return stringData.toString();
+	}
+	public abstract String deleteEntity()throws Exception ;
+	
+}

@@ -1,0 +1,19 @@
+package com.jdbc.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.springjdbc.entitys.Factura;
+import com.springjdbc.repository.FacturaRepository;
+
+public class ServiceFactura {
+	
+	@Autowired
+	private FacturaRepository fr;
+	
+	@Transactional
+	public void insertarVarios(Factura f1, Factura f2) {
+		fr.insertar(f1);
+		fr.insertar(f2);
+	}
+
+}

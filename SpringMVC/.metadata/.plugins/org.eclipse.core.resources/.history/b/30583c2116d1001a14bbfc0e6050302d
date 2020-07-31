@@ -1,0 +1,9 @@
+package com.springjdbc.repository;
+
+public class FacturaRepository {
+
+	
+	public void insertarFactura(Factura factura) {
+		
+	}
+}

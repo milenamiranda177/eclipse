@@ -1,0 +1,18 @@
+package com.springjdbc.main;
+
+import com.springjdbc.entitys.Factura;
+import com.springjdbc.repository.FacturaRepository;
+
+public class PrincipalJDBC {
+
+	public static void main(String[] args) {
+		
+		FacturaRepository fr = new FacturaRepository();
+		Factura factura = new Factura();
+		factura.setConcepto("Mouse");
+		factura.setImporte(233);
+		factura.setNumero(1);
+
+	}
+
+}

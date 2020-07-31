@@ -1,0 +1,5 @@
+package com.springjdbc.entitys;
+
+public class PlacaDelete {
+
+}

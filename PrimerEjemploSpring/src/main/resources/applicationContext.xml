@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+ 
+   
+  <bean id="facturaIva" class="com.spring1.FacturaConIva">
+    <property name="number" value="0" ></property>
+    <property name="concepto" value="ordenador" ></property>
+    <property name="importe" value="200" ></property>
+    <property name="lineas">
+    	<list>
+    		<ref bean="linea1"></ref>
+    		<ref bean="linea2"></ref>
+    	</list>
+    </property>
+  </bean>
+  
+  <bean id="cliente" class="com.spring1.Persona">
+    <property name="nombre" value="Juan" ></property>
+    <property name="factura" ref ="facturaIva"></property>
+  </bean>
+  
+  <bean id="linea1" class="com.spring1.LineaFactura">
+     <property name="numero" value="2" ></property>
+    <property name="concepto" value="ordenador" ></property>
+    <property name="importe" value="200" ></property>
+  </bean>
+  <bean id="linea2" class="com.spring1.LineaFactura">
+     <property name="numero" value="1" ></property>
+    <property name="concepto" value="Ropa" ></property>
+    <property name="importe" value="30" ></property>
+  </bean>
+   
+ 
+</beans>

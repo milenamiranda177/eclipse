@@ -1,0 +1,41 @@
+package com.factory;
+
+public abstract class Factura {
+
+	private String numero;
+	private String concepto;
+	private double importe;
+	
+	
+	public Factura() {
+		super();
+	}
+	public Factura(String numero, String concepto, double importe) {
+		super();
+		this.numero = numero;
+		this.concepto = concepto;
+		this.importe = importe;
+	}
+	public String getNumber() {
+		return numero;
+	}
+	public void setNumber(String number) {
+		this.numero = number;
+	}
+	public String getConcepto() {
+		return concepto;
+	}
+	public void setConcepto(String concepto) {
+		this.concepto = concepto;
+	}
+	public double getImporte() {
+		return importe;
+	}
+	public void setImporte(double importe) {
+		this.importe = importe;
+	}
+	
+	public abstract double importeTotal();
+	
+	
+}

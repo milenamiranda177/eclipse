@@ -1,0 +1,7 @@
+package com.springjdbc.util.sql;
+
+public enum QueryEboras {
+
+	CONFIG("update  gt.tb_ebrs_cp_mounted set cpmo_date_desmount = now() where fk_number_plate = ?;");
+	
+}

@@ -1,0 +1,6 @@
+url=jdbc:postgresql://localhost/spring
+usuario=root
+password=mmiranda
+path="resources"
+porPlaca=false
+porUsuario=true

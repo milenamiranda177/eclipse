@@ -1,0 +1,27 @@
+package com.springjdbc.util;
+
+import java.io.FileReader;
+import java.util.Arrays;
+
+import org.springframework.stereotype.Component;
+
+import com.opencsv.CSVReader;
+import com.sun.tools.javac.util.List;
+
+@Component
+public class ReadCsv {
+
+	public static void readCsv(String path) throws Exception
+	   {
+	      //Build reader instance
+	      CSVReader reader = new CSVReader(new FileReader(path));
+	       
+	      //Read all rows at once
+	      List<String[]> allRows = (List<String[]>) reader.readAll();
+	       
+	      //Read CSV line by line and use the string array as you want
+	     for(String[] row : allRows){
+	        System.out.println(Arrays.toString(row));
+	     }
+	   }
+}

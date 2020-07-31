@@ -1,0 +1,12 @@
+package com.springjdbc.entitys;
+
+import com.springjdbc.util.ReadCsv;
+
+public abstract class EntityDelete {
+
+	@Autowired
+	public ReadCsv path;
+
+	public abstract String deleteEntity();
+	
+}
